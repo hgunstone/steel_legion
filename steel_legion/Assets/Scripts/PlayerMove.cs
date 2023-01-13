@@ -6,6 +6,8 @@ public class PlayerMove : MonoBehaviour
 {
     [Header("Movement")]
     public float moveSpeed;
+    public float sprintSpeed;
+    public float crouchSpeed;
 
     public float groundDrag;
 
@@ -21,6 +23,8 @@ public class PlayerMove : MonoBehaviour
 
     [Header("Keybinds")]
     public KeyCode jumpKey = KeyCode.Space;
+    public KeyCode sprintKey = KeyCode.LeftShift;
+    public KeyCode crouchKey = KeyCode.LeftControl;
 
     public Transform orientation;
 
@@ -69,8 +73,12 @@ public class PlayerMove : MonoBehaviour
 
             Invoke(nameof(ResetJump), jumpCooldown);
         }
-    }
 
+        if(Input.GetKey(sprintKey) && grounded | !grounded)
+        {
+            rb.AddForce(moveDirection.normalized * (sprintSpeed - moveSpeed) * 10f, ForceMode.Force);
+        }
+    }
     private void MovePlayer()
     {
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontailInput;
@@ -81,7 +89,6 @@ public class PlayerMove : MonoBehaviour
         if (!grounded)
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
     }
-
     private void SpeedControl()
     {
         Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
@@ -92,7 +99,6 @@ public class PlayerMove : MonoBehaviour
             rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
         }
     }
-
     private void jump()
     {
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);

@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Scene
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_MinSize: {x: 677, y: 492}
   m_MaxSize: {x: 14001, y: 14042}
   vertical: 1
-  controlID: 125
+  controlID: 128
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_MinSize: {x: 677, y: 492}
   m_MaxSize: {x: 14001, y: 14042}
   vertical: 0
-  controlID: 126
+  controlID: 129
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_MinSize: {x: 402, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 60
+  controlID: 63
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -196,7 +196,7 @@ MonoBehaviour:
   m_MinSize: {x: 402, y: 221}
   m_MaxSize: {x: 8002, y: 4021}
   vertical: 0
-  controlID: 61
+  controlID: 64
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -439,14 +439,14 @@ MonoBehaviour:
   m_LastFolders:
   - Assets/Scripts
   m_LastFoldersGridSize: 64
-  m_LastProjectPath: C:\Henry\Henry_3D_Platformer\steel_legion
+  m_LastProjectPath: C:\Henry\steel_legion\steel_legion
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: d04b0000
-    m_LastClickedID: 19408
-    m_ExpandedIDs: 00000000c84b000000ca9a3b
+    m_SelectedIDs: 403e0000
+    m_LastClickedID: 15936
+    m_ExpandedIDs: 00000000363e000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -474,7 +474,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 06d6ffff
     m_LastClickedID: -10746
-    m_ExpandedIDs: 
+    m_ExpandedIDs: 00000000363e0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -558,9 +558,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 32eefffff2f7ffff3cf9ffff82faffff
+      m_SelectedIDs: 5248ffff
+      m_LastClickedID: -47022
+      m_ExpandedIDs: 228effffc08effff7491ffff9291fffff492ffff0af9ffff4cf9ffff2efbffff08430000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -620,9 +620,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.47361225, y: -1.4880639, z: -1.2118653}
+    m_Target: {x: 43.2885, y: -24.519945, z: 18.716215}
     speed: 2
-    m_Value: {x: -0.47361225, y: -1.4880639, z: -1.2118653}
+    m_Value: {x: 43.2885, y: -24.519945, z: 18.716215}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -669,13 +669,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.117009744, y: -0.761831, z: 0.1436001, w: -0.6207506}
+    m_Target: {x: -0.6121575, y: -0.012133947, z: 0.009251337, w: -0.79069704}
     speed: 2
-    m_Value: {x: -0.117007986, y: -0.76181954, z: 0.14359795, w: -0.6207413}
+    m_Value: {x: -0.6084935, y: -0.015744487, z: 0.011934161, w: -0.7933129}
   m_Size:
-    m_Target: 16.289389
+    m_Target: 49.556854
     speed: 2
-    m_Value: 16.289389
+    m_Value: 49.556854
   m_Ortho:
     m_Target: 0
     speed: 2

@@ -5,16 +5,23 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     [Header("Movement")]
-    public float moveSpeed;
-    public float sprintSpeed;
+    public float walkSpeed;
+    public float sprintMultiplier;
     public float crouchSpeed;
 
     public float groundDrag;
+
+    public float crouchYScale;
+    public float startYScale;
 
     public float jumpForce;
     public float jumpCooldown;
     public float airMultiplier;
     bool readyToJump;
+
+    public bool sprinting;
+    public bool walking;
+    public bool crouching;
 
     [Header("Ground Check")]
     public float playerHeight;
@@ -41,6 +48,10 @@ public class PlayerMove : MonoBehaviour
         rb.freezeRotation = true;
 
         readyToJump = true;
+
+        sprinting = false;
+
+        startYScale = transform.localScale.y;
     }
 
     private void Update()
@@ -51,9 +62,35 @@ public class PlayerMove : MonoBehaviour
         SpeedControl();
 
         if (grounded)
+        {
             rb.drag = groundDrag;
+        }
         else
-            rb.drag = 0;
+        {
+            rb.drag = 0;           
+        }
+
+        if (Input.GetKeyUp(sprintKey))
+        {
+            walking = true;
+            sprinting = false;
+        }
+
+        if (sprinting)
+        {
+            walking = false;
+        }
+
+        if (Input.GetKeyDown(crouchKey))
+        {
+            crouching = true;
+        }
+        
+        if (Input.GetKeyUp(crouchKey))
+        {
+            crouching = false;
+        }
+
     }
 
     private void FixedUpdate()
@@ -74,29 +111,53 @@ public class PlayerMove : MonoBehaviour
             Invoke(nameof(ResetJump), jumpCooldown);
         }
 
-        if(Input.GetKey(sprintKey) && grounded | !grounded)
+        if(Input.GetKey(sprintKey) && !crouching)
         {
-            rb.AddForce(moveDirection.normalized * (sprintSpeed - moveSpeed) * 10f, ForceMode.Force);
+            rb.AddForce(moveDirection.normalized * (sprintMultiplier) * 10f, ForceMode.Force);
+
+            sprinting = true;
+        }
+        if (Input.GetKeyDown(crouchKey))
+        {
+            transform.localScale = new Vector3(transform.localScale.x, crouchYScale, transform.localScale.z);
+            rb.AddForce(Vector3.down * 5f, ForceMode.Impulse);
+        }
+
+        if (Input.GetKeyUp(crouchKey))
+        {
+            transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
         }
     }
     private void MovePlayer()
     {
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontailInput;
 
-        if(grounded)
-            rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+        if(grounded && !sprinting)
+            rb.AddForce(moveDirection.normalized * walkSpeed * 10f, ForceMode.Force);
 
-        if (!grounded)
-            rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
+        if (!grounded && !sprinting)
+            rb.AddForce(moveDirection.normalized * walkSpeed * 10f * airMultiplier, ForceMode.Force);
     }
     private void SpeedControl()
     {
         Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
-        if (flatVel.magnitude > moveSpeed)
+        if (flatVel.magnitude > walkSpeed && walking) 
         {
-            Vector3 limitedVel = flatVel.normalized * moveSpeed;
+            Vector3 limitedVel = flatVel.normalized * walkSpeed;
             rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
+        }
+
+        else if (flatVel.magnitude > sprintMultiplier && sprinting)
+        {
+            Vector3 limitedVel = flatVel.normalized * sprintMultiplier;
+            rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
+        }
+
+        else if (flatVel.magnitude > crouchSpeed && crouching)
+        {
+            Vector3 limitedVel = flatVel.normalized * crouchSpeed;
+            rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);            
         }
     }
     private void jump()

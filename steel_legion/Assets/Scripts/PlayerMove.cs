@@ -51,6 +51,8 @@ public class PlayerMove : MonoBehaviour
 
         sprinting = false;
 
+        walking = true;
+
         startYScale = transform.localScale.y;
     }
 

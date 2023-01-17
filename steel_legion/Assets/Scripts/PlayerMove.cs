@@ -17,7 +17,7 @@ public class PlayerMove : MonoBehaviour
     public float jumpForce;
     public float jumpCooldown;
     public float airMultiplier;
-    bool readyToJump;
+    public bool readyToJump;
 
     public bool sprinting;
     public bool walking;
@@ -86,11 +86,13 @@ public class PlayerMove : MonoBehaviour
         if (Input.GetKeyDown(crouchKey))
         {
             crouching = true;
+            walking = false;
         }
         
         if (Input.GetKeyUp(crouchKey))
         {
             crouching = false;
+            walking = true;
         }
 
     }

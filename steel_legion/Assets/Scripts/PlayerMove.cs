@@ -24,6 +24,7 @@ public class PlayerMove : MonoBehaviour
     public bool walking;
     public bool crouching;
     public bool climbing;
+    public bool jumping;
 
     [Header("Ground Check")]
     public float playerHeight;
@@ -52,12 +53,10 @@ public class PlayerMove : MonoBehaviour
         rb.freezeRotation = true;
 
         readyToJump = true;
-
-        sprinting = false;
-
         walking = true;
-
+        sprinting = false;
         climbing = false;
+        jumping = false;
 
         startYScale = transform.localScale.y;
     }
@@ -72,6 +71,8 @@ public class PlayerMove : MonoBehaviour
         if (grounded)
         {
             rb.drag = groundDrag;
+
+
         }
         else
         {
@@ -115,6 +116,8 @@ public class PlayerMove : MonoBehaviour
         if(Input.GetKey(jumpKey) && readyToJump && grounded)
         {
             readyToJump = false;
+
+            jumping = true;
 
             jump();
 

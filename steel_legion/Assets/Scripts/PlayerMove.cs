@@ -8,7 +8,6 @@ public class PlayerMove : MonoBehaviour
     public float walkSpeed;
     public float sprintMultiplier;
     public float crouchSpeed;
-    public float climbSpeed;
 
     public float groundDrag;
 
@@ -23,7 +22,6 @@ public class PlayerMove : MonoBehaviour
     public bool sprinting;
     public bool walking;
     public bool crouching;
-    public bool climbing;
     public bool jumping;
 
     [Header("Ground Check")]
@@ -55,7 +53,7 @@ public class PlayerMove : MonoBehaviour
         readyToJump = true;
         walking = true;
         sprinting = false;
-        climbing = false;
+
         jumping = false;
 
         startYScale = transform.localScale.y;
@@ -182,22 +180,5 @@ public class PlayerMove : MonoBehaviour
     private void ResetJump()
     {
         readyToJump = true;
-    }
-
-    private void OnTriggerEnter(Collider other)
-{
-    if(whatIsLadder == (whatIsLadder | (1 << other.gameObject.layer)))
-    {
-        climbing = true;
-        rb.AddForce(new Vector3(0, climbSpeed, 0), ForceMode.Force);
-    }
-}
-
-    private void OnTriggerExit(Collider other)
-    {
-    if(whatIsLadder == (whatIsLadder | (1 << other.gameObject.layer)))
-    {
-        climbing = false;
-    }
     }
 }

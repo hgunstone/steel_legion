@@ -2,9 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
+    public TMP_Text nameText;
+    public TMP_Text dialogueText;
+
+    public Animator animator;
+
     private Queue<string> sentences;
 
 
@@ -15,7 +21,9 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue (Dialogue dialogue)
     {
-        Debug.Log("Starting conversation");
+        animator.SetBool("IsOpen", true);
+
+        nameText.text = dialogue.name;
 
         sentences.Clear();
 
@@ -24,6 +32,9 @@ public class DialogueManager : MonoBehaviour
             sentences.Enqueue(sentence);
         }
             DisplayNextSentence();
+
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
  
@@ -36,10 +47,15 @@ public class DialogueManager : MonoBehaviour
         }
 
         string sentence = sentences.Dequeue();
+
+        dialogueText.text = sentence;
     }
 
     void EndDialogue()
     {
-        Debug.Log("End of conversation");
+        animator.SetBool("IsOpen", false);
+
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }

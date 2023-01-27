@@ -6,6 +6,7 @@ TagManager:
   tags:
   - poem
   - Text
+  - Cog
   layers:
   - Default
   - TransparentFX

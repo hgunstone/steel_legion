@@ -70,6 +70,8 @@ public class PlayerMove : MonoBehaviour
         if (grounded) // Adds drag/friction when you are on the ground
         {
             rb.drag = groundDrag;
+
+            jumping = false;
         }
         else
         {

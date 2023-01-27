@@ -14,5 +14,11 @@ public class RetryScene : MonoBehaviour
     {
         SceneManager.LoadScene("Main menu");
     }
+
+    void Start()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
 }
 

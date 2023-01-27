@@ -5,8 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class NextLevel : MonoBehaviour
 {
+
+    public CogPickup cog_pickup;
+
+    void Start()
+    {
+
+    }
+
     private void OnTriggerEnter() // calls this function when you enter the trigger
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); // goes to the next scene in the build index 
-    }
+        if (cog_pickup.openDoor == true)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); // goes to the next scene in the build index 
+    }   } 
 }

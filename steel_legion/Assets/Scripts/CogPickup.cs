@@ -8,6 +8,8 @@ public class CogPickup : MonoBehaviour
     public float cogsInLevel;
     public float cogCounter;
 
+    public bool openDoor;
+
     private void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.tag == "Cog")
@@ -17,4 +19,19 @@ public class CogPickup : MonoBehaviour
             Destroy(collider.gameObject);
         }
     }
+
+    void Start() 
+    {
+        openDoor = false;
+    }
+    
+    private void Update()
+    {
+        if (cogCounter == cogsInLevel)
+        {
+            openDoor = true;
+        }
+    }
+
+        
 }

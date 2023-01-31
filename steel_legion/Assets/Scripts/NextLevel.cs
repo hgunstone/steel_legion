@@ -8,11 +8,6 @@ public class NextLevel : MonoBehaviour
 
     public CogPickup cog_pickup;
 
-    void Start()
-    {
-
-    }
-
     private void OnTriggerEnter() // calls this function when you enter the trigger
     {
         if (cog_pickup.openDoor == true)

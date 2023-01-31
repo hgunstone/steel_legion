@@ -7,6 +7,6 @@ public class RobotCaught : MonoBehaviour
 {
     private void OnTriggerEnter()
     {
-        SceneManager.LoadScene("RobotCaughtU");
+        SceneManager.LoadScene("RobotCaughtU1");
     }
 }

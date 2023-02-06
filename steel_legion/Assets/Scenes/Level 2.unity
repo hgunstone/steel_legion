@@ -3073,7 +3073,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 5
-  sprintMultiplier: 1.5
+  sprintMultiplier: 2.5
   crouchSpeed: 2.5
   groundDrag: 5
   crouchYScale: 0.5
@@ -3085,7 +3085,7 @@ MonoBehaviour:
   sprinting: 0
   walking: 0
   crouching: 0
-  jumping: 1
+  jumping: 0
   playerHeight: 2
   whatIsGround:
     serializedVersion: 2
@@ -3093,7 +3093,7 @@ MonoBehaviour:
   jumpKey: 32
   sprintKey: 304
   crouchKey: 306
-  orientation: {fileID: 5012928614528354395}
+  orientation: {fileID: 0}
 --- !u!54 &5012928613150349097
 Rigidbody:
   m_ObjectHideFlags: 0

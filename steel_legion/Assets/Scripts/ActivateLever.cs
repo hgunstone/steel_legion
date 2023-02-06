@@ -17,6 +17,8 @@ public class ActivateLever : MonoBehaviour
             if (Input.GetKeyDown(useKey))
             {
                 leverHandle.transform.Rotate(0f, 0f, -40f);
+
+                playerInTrigger = false;
             }
         }
     }

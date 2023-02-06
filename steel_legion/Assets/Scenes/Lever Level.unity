@@ -1330,7 +1330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 5
-  sprintMultiplier: 1.5
+  sprintMultiplier: 2.5
   crouchSpeed: 2.5
   groundDrag: 5
   crouchYScale: 0.5
@@ -1342,7 +1342,7 @@ MonoBehaviour:
   sprinting: 0
   walking: 0
   crouching: 0
-  jumping: 1
+  jumping: 0
   playerHeight: 2
   whatIsGround:
     serializedVersion: 2

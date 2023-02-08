@@ -1,24 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ActivateLever : MonoBehaviour
 {
+    [SerializeField] private CanvasGroup myUIGroup;
+
     public GameObject leverHandle;
+
+    public bool fadeToBlack = false;
 
     public KeyCode useKey = KeyCode.E;
 
     bool playerInTrigger = false;
 
+    private void Start()
+    {
+        myUIGroup.alpha = 0;
+    }
+
     private void Update()
     {
-        if (playerInTrigger == true)
+        if (myUIGroup.alpha < 1 && fadeToBlack)
+        {
+            myUIGroup.alpha += Time.deltaTime;
+        }
+
+        if (playerInTrigger)
         {
             if (Input.GetKeyDown(useKey))
             {
                 leverHandle.transform.Rotate(0f, 0f, -40f);
 
                 playerInTrigger = false;
+
+                fadeToBlack = true;
             }
         }
     }

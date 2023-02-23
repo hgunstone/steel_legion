@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ActivateLever : MonoBehaviour
 {
@@ -36,8 +37,16 @@ public class ActivateLever : MonoBehaviour
                 playerInTrigger = false;
 
                 fadeToBlack = true;
+
+                StartCoroutine(LoadingScene());
             }
         }
+    }
+
+    IEnumerator LoadingScene()
+    {
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene("End Scene");
     }
 
     void OnTriggerEnter(Collider other)

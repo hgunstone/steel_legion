@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class RobotCaught3 : MonoBehaviour
+public class RobotCaught2 : MonoBehaviour
 {
     private void OnTriggerEnter()
     {

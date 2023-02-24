@@ -7,7 +7,7 @@ public class RetryScene2 : MonoBehaviour
 {
     public void Retry()
     {
-        SceneManager.LoadScene("Level 2");
+        SceneManager.LoadScene("Level 3");
     }
 
     public void MainMenu()

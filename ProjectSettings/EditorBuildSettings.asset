@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/RobotCaughtU2.unity
     guid: 1fa8fc751ecffe2408ffa8575dfd0225
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: aa0dd262580122b42836c4d842fe6266
   m_configObjects: {}

@@ -4,12 +4,23 @@ using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
 {
-    public Dialogue dialogue;
 
-    public KeyCode useKey = KeyCode.E;
+    public Dialogue dialogue; 
+
+    public AudioSource my_source;
+    public AudioClip sound;
+    public float volume = 25f;
+
+    public bool has_played = false;
 
     public void OnTriggerEnter()
     {
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        if (!has_played)
+        {
+            my_source.PlayOneShot(sound, volume);
+            has_played = true;
+            FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        }
+
     }
 }
